@@ -1,16 +1,20 @@
 import React from 'react';
 import HomePage from './Homepage';
 import AboutPage from './AboutPage';
+import CoursesPage from './CoursesPage';
 import Header from './common/Header';
 
 const App = () => {
 
     const getPage = () => {
         const route = window.location.pathname;
-        return (route === "/about" ? <AboutPage /> : <HomePage />); 
+        if(route === "/about") return <AboutPage />;
+        if(route === "/courses") return <CoursesPage />;
+
+        return <HomePage />; 
     };
 
-    return(
+    return( 
         <div className="container-fluid">
             <Header />
             {getPage()}
